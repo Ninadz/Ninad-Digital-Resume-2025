@@ -1,85 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ninad | ServiceNow Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <h1>NINAD</h1>
-      <nav>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <header>
+        <button id="theme-toggle" class="theme-btn"><i class="fas fa-moon"></i></button>
+        <h1>Your Full Name</h1>
+        <p>Software Developer</p>
+        <a href="resume.pdf" download class="download-btn">Download Resume</a>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#projects">Projects</a>
+            <a href="#blog">Blog</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-  <!-- Hero Section -->
-  <section id="hero">
-    <div class="container hero-content">
-      <h2>Hi, I'm Ninad</h2>
-      <p>ServiceNow Discovery Specialist | ITOM | ITSM</p>
-      <a href="#projects" class="btn">View Projects</a>
-    </div>
-  </section>
+    <main>
+        <!-- Existing Sections (About, Experience, etc.) -->
 
-  <!-- About Section -->
-  <section id="about">
-    <div class="container">
-      <h2>About Me</h2>
-      <p>ServiceNow expert specializing in ITOM and Discovery solutions. I work to build seamless, innovative digital experiences.</p>
-    </div>
-  </section>
+        <!-- New Blog Section -->
+        <section id="blog">
+            <h2 class="section-title">Latest Posts</h2>
+            <div class="blog-posts">
+                <article class="blog-post">
+                    <h3>Post Title 1</h3>
+                    <p class="post-date">March 15, 2023</p>
+                    <p>Blog post excerpt...</p>
+                    <a href="#" class="read-more">Read More</a>
+                </article>
+                <!-- Add more posts -->
+            </div>
+        </section>
 
-  <!-- Experience Section -->
-  <section id="experience">
-    <div class="container">
-      <h2>Experience</h2>
-      <div class="experience-item">
-        <h3>ServiceNow Discovery Specialist</h3>
-        <p>Handling CMDB, ITOM, and automation to improve efficiency.</p>
-      </div>
-    </div>
-  </section>
+        <!-- Portfolio Gallery -->
+        <section id="gallery">
+            <h2 class="section-title">Work Gallery</h2>
+            <div class="gallery-grid">
+                <img src="project1.jpg" alt="Project 1" class="gallery-item">
+                <img src="project2.jpg" alt="Project 2" class="gallery-item">
+                <!-- Add more images -->
+            </div>
+        </section>
 
-  <!-- Projects Section -->
-  <section id="projects">
-    <div class="container">
-      <h2>Projects</h2>
-      <div class="project">
-        <h3>AI-Based IT Discovery</h3>
-        <p>Developed an AI-powered ServiceNow Discovery framework to streamline IT operations.</p>
-      </div>
-    </div>
-  </section>
+        <!-- Testimonials Section -->
+        <section id="testimonials">
+            <h2 class="section-title">Testimonials</h2>
+            <div class="testimonial-carousel">
+                <div class="testimonial active">
+                    <blockquote>"Amazing work! Highly recommend."</blockquote>
+                    <cite>- Client Name</cite>
+                </div>
+                <div class="testimonial">
+                    <blockquote>"Exceptional attention to detail."</blockquote>
+                    <cite>- Colleague Name</cite>
+                </div>
+                <button class="carousel-btn prev">❮</button>
+                <button class="carousel-btn next">❯</button>
+                <div class="indicators"></div>
+            </div>
+        </section>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <div class="container">
-      <h2>Contact Me</h2>
-      <form id="contact-form">
-        <input type="text" id="name" placeholder="Your Name" required>
-        <input type="email" id="email" placeholder="Your Email" required>
-        <textarea id="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
-  </section>
+        <!-- Lightbox Modal -->
+        <div id="lightbox" class="lightbox">
+            <span class="close-btn">&times;</span>
+            <img class="lightbox-content" id="lightbox-img">
+        </div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>© 2025 Ninad | All rights reserved.</p>
-    </div>
-  </footer>
+        <!-- Scroll to Top Button -->
+        <button id="scroll-top" class="scroll-top-btn"><i class="fas fa-arrow-up"></i></button>
+    </main>
+
+    <footer>
+        <!-- Social Links -->
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
