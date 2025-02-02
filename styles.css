@@ -128,3 +128,99 @@ body {
 [data-theme="dark"] button {
     background-color: var(--secondary-color);
 }
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+#experience {
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 4rem;
+}
+
+/* Experience Section Title */
+.section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 2rem;
+}
+
+/* Experience Card Styling */
+.experience-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease-in-out;
+}
+.experience-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Experience Header */
+.experience-header {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 0.8rem;
+  margin-bottom: 1rem;
+}
+.experience-header h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.experience-header .company {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--secondary);
+}
+.experience-header .dates {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: gray;
+}
+
+/* Experience Content */
+.experience-body h4 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--dark);
+  margin-top: 1rem;
+}
+.experience-body ul {
+  padding-left: 1.2rem;
+  list-style-type: none;
+}
+.experience-body ul li {
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.experience-body ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+
+/* Save Button */
+.save-btn {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: block;
+  margin: 1rem auto;
+  transition: background 0.3s ease;
+}
+.save-btn:hover {
+  background: #0a5bb8;
+}
