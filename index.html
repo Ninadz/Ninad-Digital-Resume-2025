@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ninad Zade | ServiceNow Certified Developer</title>
+  <!-- Font Awesome for social icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
         integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root {
-      --primary: #1C7ED6; 
-      --secondary: #6F42C1; 
-      --accent: #20C997; 
+      --primary: #1C7ED6;
+      --secondary: #6F42C1;
+      --accent: #20C997;
       --dark: #2D3B4A;
       --light: #F8F9FA;
       --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -60,7 +61,7 @@
       font-size: 1.8rem;
       white-space: nowrap;
     }
-    /* Dark Mode Toggle */
+    /* Dark Mode Toggle using Emoji */
     .theme-toggle {
       background: none;
       border: none;
@@ -84,6 +85,20 @@
     nav a.active {
       background: rgba(255, 255, 255, 0.2);
     }
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      padding: 0.5rem 1rem;
+      z-index: 100;
+      transition: top 0.3s;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+    /* Hero Section */
     .hero {
       height: 100vh;
       background: var(--gradient);
@@ -110,6 +125,7 @@
     .cta-btn:hover {
       background: #0a5bb8;
     }
+    /* Main Content */
     main {
       padding: 3rem 2rem;
       max-width: 1000px;
@@ -124,26 +140,146 @@
       margin-bottom: 1.5rem;
       text-align: center;
     }
-    /* Editable Content */
+    /* Editable Sections */
     [contenteditable="true"] {
       padding: 0.5rem;
       border: 1px dashed var(--primary);
       border-radius: 5px;
       min-height: 20px;
       cursor: text;
+      margin-bottom: 0.5rem;
     }
     [contenteditable="true"]:focus {
       outline: 2px solid var(--primary);
     }
+    .save-btn {
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      padding: 0.4rem 0.8rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: background 0.3s ease;
+      font-size: 0.9rem;
+    }
+    .save-btn:hover {
+      background: #0a5bb8;
+    }
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+    .project-card h3 {
+      margin-bottom: 0.5rem;
+    }
+    .tech-stack span {
+      display: inline-block;
+      margin-right: 0.5rem;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.2rem 0.5rem;
+      border-radius: 5px;
+      font-size: 0.8rem;
+    }
+    /* Experience Timeline */
+    .timeline-item {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+    .timeline-item h3 {
+      margin-bottom: 0.5rem;
+    }
+    .timeline-item ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+    }
+    /* Contact Section */
+    .contact-info {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+    .contact-info a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    .contact-form input:focus, .contact-form textarea:focus {
+      border-color: var(--primary);
+      outline: none;
+    }
+    /* Footer */
     footer {
       background: var(--gradient);
       padding: 1rem 2rem;
       text-align: center;
       color: #fff;
     }
+    footer .social a {
+      color: #fff;
+      margin: 0 0.5rem;
+      font-size: 1.4rem;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+    footer .social a:hover {
+      opacity: 0.8;
+    }
+    /* Back-to-Top Button */
+    #back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 100;
+      font-size: 1.2rem;
+      transition: opacity 0.3s ease;
+    }
+    #back-to-top.show {
+      display: flex;
+    }
   </style>
 </head>
 <body>
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  
+  <!-- (Optional) Particles Background -->
+  <div id="particles-js"></div>
+  
+  <!-- Header -->
   <header>
     <div class="title-container">
       <h1>Ninad Zade</h1>
@@ -156,62 +292,172 @@
       <a href="#contact" class="nav-link">Contact</a>
     </nav>
   </header>
-
+  
+  <!-- Hero Section -->
   <section id="home" class="hero">
-    <div>
+    <div class="hero-content">
       <h1>Ninad Zade</h1>
       <p>ServiceNow Certified Developer</p>
       <button class="cta-btn" onclick="scrollToSection('projects')">View My Work</button>
     </div>
   </section>
-
-  <main>
+  
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- Projects Section -->
     <section id="projects">
       <h2 class="section-title">Projects</h2>
-      <div contenteditable="true">
-        <p><strong>ServiceNow HR Portal:</strong> Developed an employee self-service portal with 50+ workflows.</p>
-        <p><strong>Incident Management:</strong> Created an automated incident resolution workflow using ServiceNow.</p>
+      <div id="projectsContent" contenteditable="true">
+        <p><strong>ServiceNow HR Portal:</strong> Developed an employee self-service portal with 50+ workflows using ServiceNow and Angular.</p>
+        <p><strong>Incident Management:</strong> Implemented an incident management system that reduced ticket resolution times by 30% using REST APIs.</p>
+        <p><strong>Asset Management:</strong> Designed and implemented an asset management solution that improved asset tracking efficiency by 40%.</p>
       </div>
+      <button class="save-btn" onclick="saveSection('projectsContent')">Save Changes</button>
     </section>
-
+    
+    <!-- Experience Section -->
     <section id="experience">
       <h2 class="section-title">Experience</h2>
-      <div contenteditable="true">
+      <div id="experienceContent" contenteditable="true">
         <p><strong>Senior ServiceNow Developer</strong> - Tech Corp Inc (2020–Present)</p>
+        <ul>
+          <li>Led the implementation of the ITSM module for a Fortune 500 client.</li>
+          <li>Developed custom scoped applications to enhance platform flexibility.</li>
+        </ul>
         <p><strong>ServiceNow Consultant</strong> - Infosys (2017–2020)</p>
+        <ul>
+          <li>Provided expert consulting on ServiceNow integrations and process optimizations.</li>
+          <li>Trained teams on best practices for ServiceNow development and administration.</li>
+        </ul>
       </div>
+      <button class="save-btn" onclick="saveSection('experienceContent')">Save Changes</button>
     </section>
-
+    
+    <!-- Contact Section -->
     <section id="contact">
       <h2 class="section-title">Contact</h2>
-      <div contenteditable="true">
-        <p>Email: ninadzade360@gmail.com</p>
+      <div id="contactContent" contenteditable="true">
+        <p>Email: <a href="mailto:ninadzade360@gmail.com">ninadzade360@gmail.com</a></p>
         <p>Phone: +91-9764746591</p>
         <p>LinkedIn: <a href="https://linkedin.com/in/ninad-zade" target="_blank">linkedin.com/in/ninad-zade</a></p>
       </div>
+      <button class="save-btn" onclick="saveSection('contactContent')">Save Changes</button>
     </section>
   </main>
-
+  
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Ninad Zade. All rights reserved.</p>
+    <div class="social">
+      <a href="https://twitter.com/" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://linkedin.com/" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
   </footer>
-
+  
+  <!-- Back-to-Top Button -->
+  <button id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+  
+  <!-- Optional: Particles.js library -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
   <script>
+    // Initialize Particles.js if available
+    if (typeof particlesJS === "function") {
+      particlesJS('particles-js', {
+        particles: {
+          number: { value: 80 },
+          color: { value: '#ffffff' },
+          shape: { type: 'circle' },
+          opacity: { value: 0.5 },
+          size: { value: 3 },
+          move: { speed: 2, out_mode: 'out' }
+        },
+        interactivity: {
+          events: { onhover: { enable: true, mode: 'repulse' } }
+        }
+      });
+    }
+    
+    // Smooth scroll for nav links
     function scrollToSection(sectionId) {
-      document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
     }
-    document.getElementById('theme-toggle').addEventListener('click', () => {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      document.getElementById('theme-toggle').textContent = newTheme === 'light' ? '🌙' : '🌞';
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        scrollToSection(targetId);
+      });
     });
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      document.documentElement.setAttribute('data-theme', savedTheme);
-      document.getElementById('theme-toggle').textContent = savedTheme === 'light' ? '🌙' : '🌞';
+    
+    // Update active nav link based on scroll position
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.nav-link');
+      let index = sections.length;
+      while(--index && window.scrollY + 150 < sections[index].offsetTop) {}
+      navLinks.forEach(link => link.classList.remove('active'));
+      if (navLinks[index]) {
+        navLinks[index].classList.add('active');
+      }
+    });
+    
+    // Save section content to localStorage
+    function saveSection(sectionId) {
+      const content = document.getElementById(sectionId).innerHTML;
+      localStorage.setItem(sectionId, content);
+      alert('Changes saved for ' + sectionId);
     }
+    
+    // Load saved content on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      ['projectsContent', 'experienceContent', 'contactContent'].forEach(id => {
+        const saved = localStorage.getItem(id);
+        if (saved) {
+          document.getElementById(id).innerHTML = saved;
+        }
+      });
+    });
+    
+    // Contact form submission handler (optional)
+    document.querySelector('.contact-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Message sent successfully!');
+      e.target.reset();
+    });
+    
+    // Dark Mode Toggle
+    (function(){
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        themeToggleBtn.textContent = newTheme === 'light' ? '🌙' : '🌞';
+      });
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        themeToggleBtn.textContent = savedTheme === 'light' ? '🌙' : '🌞';
+      }
+    })();
+    
+    // Back-to-Top Button
+    const backToTopBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   </script>
 </body>
 </html>
