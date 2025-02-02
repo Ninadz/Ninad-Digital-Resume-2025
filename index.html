@@ -3,86 +3,275 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
+    <title>Your Name | ServiceNow Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --primary: #1C7ED6; /* ServiceNow Blue */
+            --secondary: #6F42C1; /* ServiceNow Purple */
+            --accent: #20C997; /* ServiceNow Teal */
+            --dark: #2D3B4A;
+            --light: #F8F9FA;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Particle Background */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: var(--gradient);
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Animated Cards */
+        .card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        /* Glowing Effects */
+        .glow {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glow::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent, 
+                var(--accent),
+                transparent 30%
+            );
+            animation: rotate 4s linear infinite;
+        }
+
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Interactive Skills Chart */
+        .skills-chart {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .skill-item {
+            position: relative;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Animated Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* ServiceNow Style Buttons */
+        .btn {
+            padding: 12px 24px;
+            border-radius: 25px;
+            border: none;
+            background: var(--primary);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255,255,255,0.1);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+        }
+
+        .btn:hover::after {
+            left: 120%;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <button id="theme-toggle" class="theme-btn"><i class="fas fa-moon"></i></button>
-        <h1>Your Full Name</h1>
-        <p>Software Developer</p>
-        <a href="resume.pdf" download class="download-btn">Download Resume</a>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#skills">Skills</a>
-            <a href="#education">Education</a>
-            <a href="#projects">Projects</a>
-            <a href="#blog">Blog</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+    <div id="particles-js"></div>
 
-    <main>
-        <!-- Existing Sections (About, Experience, etc.) -->
-
-        <!-- New Blog Section -->
-        <section id="blog">
-            <h2 class="section-title">Latest Posts</h2>
-            <div class="blog-posts">
-                <article class="blog-post">
-                    <h3>Post Title 1</h3>
-                    <p class="post-date">March 15, 2023</p>
-                    <p>Blog post excerpt...</p>
-                    <a href="#" class="read-more">Read More</a>
-                </article>
-                <!-- Add more posts -->
-            </div>
-        </section>
-
-        <!-- Portfolio Gallery -->
-        <section id="gallery">
-            <h2 class="section-title">Work Gallery</h2>
-            <div class="gallery-grid">
-                <img src="project1.jpg" alt="Project 1" class="gallery-item">
-                <img src="project2.jpg" alt="Project 2" class="gallery-item">
-                <!-- Add more images -->
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section id="testimonials">
-            <h2 class="section-title">Testimonials</h2>
-            <div class="testimonial-carousel">
-                <div class="testimonial active">
-                    <blockquote>"Amazing work! Highly recommend."</blockquote>
-                    <cite>- Client Name</cite>
-                </div>
-                <div class="testimonial">
-                    <blockquote>"Exceptional attention to detail."</blockquote>
-                    <cite>- Colleague Name</cite>
-                </div>
-                <button class="carousel-btn prev">❮</button>
-                <button class="carousel-btn next">❯</button>
-                <div class="indicators"></div>
-            </div>
-        </section>
-
-        <!-- Lightbox Modal -->
-        <div id="lightbox" class="lightbox">
-            <span class="close-btn">&times;</span>
-            <img class="lightbox-content" id="lightbox-img">
+    <section class="hero">
+        <div class="hero-content">
+            <h1>ServiceNow Developer</h1>
+            <p class="subtitle">Transforming Business Processes</p>
+            <button class="btn">View My Work</button>
         </div>
+    </section>
 
-        <!-- Scroll to Top Button -->
-        <button id="scroll-top" class="scroll-top-btn"><i class="fas fa-arrow-up"></i></button>
-    </main>
+    <section class="skills-chart">
+        <div class="skill-item card">
+            <h3>ServiceNow Development</h3>
+            <div class="skill-progress"></div>
+        </div>
+        <!-- Add more skill items -->
+    </section>
 
-    <footer>
-        <!-- Social Links -->
-    </footer>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Particle Network
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80 },
+                color: { value: '#ffffff' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5 },
+                size: { value: 3 },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false,
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'repulse' },
+                    onclick: { enable: true, mode: 'push' },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
 
-    <script src="script.js"></script>
+        // Scroll Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = `slideIn 1s ${entry.target.dataset.delay} forwards`;
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.timeline-item').forEach((item, index) => {
+            item.style.setProperty('--delay', `${index * 0.2}s`);
+            observer.observe(item);
+        });
+
+        // Interactive Skills
+        document.querySelectorAll('.skill-item').forEach(item => {
+            item.addEventListener('mouseover', () => {
+                item.style.transform = `rotate(${Math.random() * 4 - 2}deg)`;
+            });
+            
+            item.addEventListener('mouseout', () => {
+                item.style.transform = 'rotate(0deg)';
+            });
+        });
+
+        // Dynamic Theme Switching
+        const colors = ['#1C7ED6', '#6F42C1', '#20C997'];
+        let currentColor = 0;
+        
+        document.querySelector('.btn').addEventListener('click', () => {
+            document.documentElement.style.setProperty('--primary', colors[currentColor]);
+            currentColor = (currentColor + 1) % colors.length;
+        });
+    </script>
 </body>
 </html>
