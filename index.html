@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ninad Zade | ServiceNow Developer</title>
+  <title>Ninad Zade | ServiceNow Certified Developer</title>
   <!-- Font Awesome for social icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
         integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    /* CSS Variables for light/dark themes */
+    /* CSS Variables for themes */
     :root {
-      --primary: #1C7ED6;
-      --secondary: #6F42C1;
-      --accent: #20C997;
+      --primary: #1C7ED6; /* ServiceNow Blue */
+      --secondary: #6F42C1; /* ServiceNow Purple */
+      --accent: #20C997; /* ServiceNow Teal */
       --dark: #2D3B4A;
       --light: #F8F9FA;
       --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -44,6 +44,14 @@
       line-height: 1.6;
     }
     
+    /* (Optional) Particles Background */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      z-index: -1;
+    }
+    
     /* Header & Navigation */
     header {
       background: var(--gradient);
@@ -68,8 +76,23 @@
       transition: background 0.3s ease;
       cursor: pointer;
     }
-    nav a:hover, nav a.active {
+    nav a:hover,
+    nav a.active {
       background: rgba(255, 255, 255, 0.2);
+    }
+    /* Skip to Content Link */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      padding: 0.5rem 1rem;
+      z-index: 100;
+      transition: top 0.3s;
+    }
+    .skip-link:focus {
+      top: 0;
     }
     
     /* Hero Section */
@@ -242,7 +265,7 @@
   </style>
 </head>
 <body>
-  <!-- Skip link for accessibility -->
+  <!-- Skip Link for Accessibility -->
   <a href="#main-content" class="skip-link">Skip to content</a>
   
   <!-- (Optional) Particles Background -->
@@ -279,6 +302,7 @@
     <section id="projects">
       <h2 class="section-title">Featured Projects</h2>
       <div class="projects-grid">
+        <!-- Project 1 -->
         <div class="project-card">
           <h3>ServiceNow HR Portal</h3>
           <p>Developed an employee self-service portal with 50+ workflows using ServiceNow and Angular.</p>
@@ -288,6 +312,7 @@
             <span>Angular</span>
           </div>
         </div>
+        <!-- Project 2 -->
         <div class="project-card">
           <h3>ServiceNow Incident Management</h3>
           <p>Implemented an incident management system that reduced ticket resolution times by 30% using REST APIs.</p>
@@ -297,6 +322,16 @@
             <span>JavaScript</span>
           </div>
         </div>
+        <!-- Project 3 -->
+        <div class="project-card">
+          <h3>ServiceNow Asset Management</h3>
+          <p>Designed and implemented an asset management solution that improved asset tracking efficiency by 40%.</p>
+          <div class="tech-stack">
+            <span>ServiceNow</span>
+            <span>JavaScript</span>
+            <span>Asset Management</span>
+          </div>
+        </div>
       </div>
     </section>
     
@@ -304,17 +339,19 @@
     <section id="experience">
       <h2 class="section-title">Professional Experience</h2>
       <div class="timeline">
+        <!-- Experience 1 -->
         <div class="timeline-item">
           <h3>Senior ServiceNow Developer</h3>
-          <p><strong>Tech Corp Inc · 2020-Present</strong></p>
+          <p><strong>Tech Corp Inc · 2020–Present</strong></p>
           <ul>
             <li>Led the implementation of the ITSM module for a Fortune 500 client.</li>
             <li>Developed custom scoped applications that enhanced platform flexibility.</li>
           </ul>
         </div>
+        <!-- Experience 2 -->
         <div class="timeline-item">
           <h3>ServiceNow Consultant</h3>
-          <p><strong>Global Solutions · 2017-2020</strong></p>
+          <p><strong>Global Solutions · 2017–2020</strong></p>
           <ul>
             <li>Provided expert consulting on ServiceNow integrations and process optimizations.</li>
             <li>Trained teams on best practices for ServiceNow development and administration.</li>
@@ -327,8 +364,8 @@
     <section id="contact">
       <h2 class="section-title">Get in Touch</h2>
       <div class="contact-info">
-        <p>Email: <a href="mailto:ninad.zade@example.com">ninad.zade@example.com</a></p>
-        <p>Phone: +91-XXXXXXXXXX</p>
+        <p>Email: <a href="mailto:ninad.zade@gmail.com">ninad.zade@gmail.com</a></p>
+        <p>Phone: +91-9876543210</p>
         <p>LinkedIn: <a href="https://linkedin.com/in/ninad-zade" target="_blank">linkedin.com/in/ninad-zade</a></p>
       </div>
       <form class="contact-form" netlify>
@@ -359,7 +396,7 @@
   <!-- Back-to-Top Button -->
   <button id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
   
-  <!-- Optional: Particles.js library (if you wish to use it) -->
+  <!-- Optional: Particles.js library (if desired) -->
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
   <script>
     // Initialize Particles.js if available
@@ -379,7 +416,7 @@
       });
     }
     
-    // Smooth scroll for nav links
+    // Smooth scroll for navigation links
     function scrollToSection(sectionId) {
       const section = document.getElementById(sectionId);
       if (section) {
@@ -394,17 +431,19 @@
       });
     });
     
-    // Update active nav link based on scroll
+    // Update active navigation link based on scroll position
     window.addEventListener('scroll', () => {
       const sections = document.querySelectorAll('section');
       const navLinks = document.querySelectorAll('.nav-link');
       let index = sections.length;
       while(--index && window.scrollY + 150 < sections[index].offsetTop) {}
       navLinks.forEach(link => link.classList.remove('active'));
-      navLinks[index].classList.add('active');
+      if (navLinks[index]) {
+        navLinks[index].classList.add('active');
+      }
     });
     
-    // Form submission handler
+    // Contact form submission handler
     document.querySelector('.contact-form').addEventListener('submit', (e) => {
       e.preventDefault();
       alert('Message sent successfully!');
@@ -421,7 +460,7 @@
         themeToggleBtn.textContent = newTheme === 'light' ? 'Dark Mode' : 'Light Mode';
         localStorage.setItem('theme', newTheme);
       });
-      // On page load, set theme from localStorage if available
+      // On page load, apply saved theme from localStorage if available
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme) {
         document.documentElement.setAttribute('data-theme', savedTheme);
@@ -429,7 +468,7 @@
       }
     })();
     
-    // Back-to-Top Button
+    // Back-to-Top Button Functionality
     const backToTopBtn = document.getElementById('back-to-top');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 300) {
