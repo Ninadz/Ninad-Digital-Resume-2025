@@ -296,11 +296,74 @@
   <!-- Hero Section -->
   <section id="home" class="hero">
     <div class="hero-content">
-      <h1>Ninad Zade</h1>
-      <p>ServiceNow Certified Developer</p>
-      <button class="cta-btn" onclick="scrollToSection('projects')">View My Work</button>
+        <div class="hero-text">
+            <h1>Ninad Zade</h1>
+            <p>ServiceNow Certified Developer</p>
+            <button class="cta-btn" onclick="scrollToSection('projects')">View My Work</button>
+        </div>
+        <div class="hero-image">
+            <img src="C:\Users\Ninad Zade\OneDrive\Desktop\Ninad Portfolio\Images\desert_night-wallpaper-3840x2160.jpg" alt="Ninad Zade" class="profile-pic">
+        </div>
     </div>
-  </section>
+</section>
+
+<!-- Background Animation -->
+<div class="animated-bg">
+    <canvas id="particles-js"></canvas>
+</div>
+
+<style>
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+}
+.hero-text {
+    max-width: 500px;
+    text-align: center;
+    color: white;
+}
+.hero-image {
+    max-width: 300px;
+}
+.profile-pic {
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.animated-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #1C7ED6, #6F42C1);
+    z-index: 1;
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    particlesJS("particles-js", {
+        particles: {
+            number: { value: 80 },
+            color: { value: "#ffffff" },
+            shape: { type: "circle" },
+            opacity: { value: 0.5 },
+            size: { value: 3 },
+            move: { speed: 2, out_mode: "out" }
+        },
+        interactivity: {
+            events: { onhover: { enable: true, mode: "repulse" } }
+        }
+    });
+</script>
+
   
   <!-- Main Content -->
   <main id="main-content">
