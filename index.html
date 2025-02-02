@@ -1,326 +1,459 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ninad Zade | ServiceNow Developer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #1C7ED6; /* ServiceNow Blue */
-            --secondary: #6F42C1; /* ServiceNow Purple */
-            --accent: #20C997; /* ServiceNow Teal */
-            --dark: #2D3B4A;
-            --light: #F8F9FA;
-            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-        }
-
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Particles Background */
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100vh;
-            z-index: -1;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: var(--gradient);
-            color: white;
-            position: relative;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            padding: 2rem;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-        }
-
-        /* Navigation */
-        .nav-links {
-            position: fixed;
-            top: 2rem;
-            right: 2rem;
-            display: flex;
-            gap: 2rem;
-            z-index: 1000;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            background: rgba(255,255,255,0.1);
-        }
-
-        /* Sections */
-        section {
-            padding: 5rem 2rem;
-            min-height: 100vh;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        /* Projects Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 15px;
-            padding: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-        }
-
-        /* Experience Timeline */
-        .timeline {
-            position: relative;
-            padding-left: 3rem;
-            margin: 2rem 0;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-
-        /* Contact Form */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        input:focus, textarea:focus {
-            border-color: var(--primary);
-            outline: none;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease;
-        }
-
-        .scroll-reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ninad Zade | ServiceNow Developer</title>
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* CSS Variables for themes */
+    :root {
+      --primary: #1C7ED6; /* ServiceNow Blue */
+      --secondary: #6F42C1; /* ServiceNow Purple */
+      --accent: #20C997; /* ServiceNow Teal */
+      --dark: #2D3B4A;
+      --light: #F8F9FA;
+      --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      
+      /* Light theme colors */
+      --bg-color: var(--light);
+      --text-color: var(--dark);
+      --btn-bg: var(--primary);
+      --btn-text: #fff;
+    }
+    [data-theme="dark"] {
+      --bg-color: #1e1e1e;
+      --text-color: #e0e0e0;
+      --btn-bg: var(--accent);
+      --btn-text: #000;
+    }
+    
+    /* Base Styles & Reset */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+    }
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    /* Particles Background */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      z-index: -1;
+    }
+    
+    /* Header and Navigation */
+    header {
+      position: relative;
+      padding: 1rem 2rem;
+      background: var(--gradient);
+      color: #fff;
+    }
+    nav {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-end;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      transition: background 0.3s ease;
+    }
+    nav a:hover,
+    nav a.active {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    /* Skip to content link for accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      padding: 0.5rem 1rem;
+      z-index: 100;
+      transition: top 0.3s;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+    
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: var(--gradient);
+      color: white;
+      position: relative;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 2rem;
+    }
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      animation: fadeInUp 1s ease;
+    }
+    /* CTA Button */
+    .cta-btn {
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .cta-btn:hover {
+      background: darken(var(--btn-bg), 10%);
+    }
+    
+    /* Sections */
+    main {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-title {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+    
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .project-card {
+      background: #fff;
+      border-radius: 15px;
+      padding: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    /* Experience Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 3rem;
+      margin: 2rem 0;
+    }
+    .timeline-item {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Contact Form */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    input:focus, textarea:focus {
+      border-color: var(--primary);
+      outline: none;
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+    .scroll-reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Dark Mode Toggle Button (in header) */
+    .theme-toggle {
+      background: none;
+      border: 2px solid #fff;
+      color: #fff;
+      padding: 0.4rem 0.8rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+      margin-right: 1rem;
+    }
+    .theme-toggle:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Back-to-Top Button */
+    #back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 1000;
+      font-size: 1.2rem;
+      transition: opacity 0.3s ease;
+    }
+    #back-to-top.show {
+      display: flex;
+    }
+    
+    /* Footer */
+    footer {
+      padding: 2rem;
+      background: var(--gradient);
+      color: #fff;
+      text-align: center;
+    }
+    footer .social a {
+      color: #fff;
+      margin: 0 0.5rem;
+      font-size: 1.5rem;
+      transition: opacity 0.3s ease;
+    }
+    footer .social a:hover {
+      opacity: 0.7;
+    }
+  </style>
 </head>
 <body>
-    <div id="particles-js"></div>
-    
-    <!-- Navigation -->
-    <nav class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Ninad Zade</h1>
-            <p class="subtitle">ServiceNow Certified Developer</p>
-            <button class="cta-btn" onclick="scrollToSection('projects')">View My Work</button>
-        </div>
-    </section>
-
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <div id="particles-js"></div>
+  
+  <!-- Header -->
+  <header>
+    <div class="header-inner" style="display: flex; justify-content: space-between; align-items: center;">
+      <h1>Ninad Zade</h1>
+      <div>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">Dark Mode</button>
+        <nav aria-label="Main Navigation">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Hero Section -->
+  <section id="home" class="hero" tabindex="0">
+    <div class="hero-content scroll-reveal">
+      <h1>Ninad Zade</h1>
+      <p class="subtitle">ServiceNow Certified Developer</p>
+      <button class="cta-btn" onclick="scrollToSection('projects')">View My Work</button>
+    </div>
+  </section>
+  
+  <!-- Main Content -->
+  <main id="main-content">
     <!-- Projects Section -->
     <section id="projects">
-        <h2 class="section-title scroll-reveal">Featured Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card scroll-reveal">
-                <h3>ServiceNow HR Portal</h3>
-                <p>Developed employee self-service portal with 50+ workflows</p>
-                <div class="tech-stack">
-                    <span>ServiceNow</span>
-                    <span>JavaScript</span>
-                    <span>Angular</span>
-                </div>
-            </div>
-            <!-- Add more project cards -->
+      <h2 class="section-title scroll-reveal">Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card scroll-reveal">
+          <h3>ServiceNow HR Portal</h3>
+          <p>Developed employee self-service portal with 50+ workflows</p>
+          <div class="tech-stack">
+            <span>ServiceNow</span>
+            <span>JavaScript</span>
+            <span>Angular</span>
+          </div>
         </div>
+        <!-- More project cards can be added here -->
+      </div>
     </section>
-
+    
     <!-- Experience Section -->
     <section id="experience">
-        <h2 class="section-title scroll-reveal">Professional Experience</h2>
-        <div class="timeline">
-            <div class="timeline-item scroll-reveal">
-                <h3>Senior ServiceNow Developer</h3>
-                <p class="company">Tech Corp Inc · 2020-Present</p>
-                <ul>
-                    <li>Led implementation of ITSM module for Fortune 500 client</li>
-                    <li>Developed custom scoped applications</li>
-                </ul>
-            </div>
-            <!-- Add more timeline items -->
+      <h2 class="section-title scroll-reveal">Professional Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item scroll-reveal">
+          <h3>Senior ServiceNow Developer</h3>
+          <p class="company">Tech Corp Inc · 2020-Present</p>
+          <ul>
+            <li>Led implementation of ITSM module for Fortune 500 client</li>
+            <li>Developed custom scoped applications</li>
+          </ul>
         </div>
+        <!-- More timeline items can be added here -->
+      </div>
     </section>
-
+    
     <!-- Contact Section -->
     <section id="contact">
-        <h2 class="section-title scroll-reveal">Get in Touch</h2>
-        <form class="contact-form scroll-reveal" netlify>
-            <div class="form-group">
-                <input type="text" placeholder="Name" required>
-            </div>
-            <div class="form-group">
-                <input type="email" placeholder="Email" required>
-            </div>
-            <div class="form-group">
-                <textarea rows="5" placeholder="Message" required></textarea>
-            </div>
-            <button type="submit" class="cta-btn">Send Message</button>
-        </form>
+      <h2 class="section-title scroll-reveal">Get in Touch</h2>
+      <form class="contact-form scroll-reveal" netlify>
+        <div class="form-group">
+          <input type="text" placeholder="Name" aria-label="Your name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Email" aria-label="Your email" required>
+        </div>
+        <div class="form-group">
+          <textarea rows="5" placeholder="Message" aria-label="Your message" required></textarea>
+        </div>
+        <button type="submit" class="cta-btn">Send Message</button>
+      </form>
     </section>
-
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        // Initialize Particles.js
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 80 },
-                color: { value: '#ffffff' },
-                shape: { type: 'circle' },
-                opacity: { value: 0.5 },
-                size: { value: 3 },
-                move: {
-                    speed: 2,
-                    out_mode: 'out'
-                }
-            },
-            interactivity: {
-                events: {
-                    onhover: { enable: true, mode: 'repulse' }
-                }
-            }
-        });
-
-        // Scroll Reveal Animation
-        const scrollReveal = document.querySelectorAll('.scroll-reveal');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        scrollReveal.forEach(element => observer.observe(element));
-
-        // Smooth Scroll Function
-        function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({
-                behavior: 'smooth'
-            });
+  </main>
+  
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Ninad Zade. All rights reserved.</p>
+    <div class="social">
+      <a href="https://twitter.com/" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://linkedin.com/" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+  </footer>
+  
+  <!-- Back-to-Top Button -->
+  <button id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+  
+  <!-- Particles.js library -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
+  <script>
+    // Initialize Particles.js
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 80 },
+        color: { value: '#ffffff' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5 },
+        size: { value: 3 },
+        move: { speed: 2, out_mode: 'out' }
+      },
+      interactivity: {
+        events: { onhover: { enable: true, mode: 'repulse' } }
+      }
+    });
+    
+    // Scroll Reveal Animation
+    const scrollElements = document.querySelectorAll('.scroll-reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
         }
-
-        // Navigation Active State
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-links a');
-            
-            sections.forEach(section => {
-                const top = window.scrollY;
-                const offset = section.offsetTop - 100;
-                const height = section.offsetHeight;
-                const id = section.getAttribute('id');
-
-                if (top >= offset && top < offset + height) {
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${id}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
-        });
-
-        // Form Submission
-        document.querySelector('form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            // Add form submission logic here
-            alert('Message sent successfully!');
-            e.target.reset();
-        });
-    </script>
+      });
+    }, { threshold: 0.1 });
+    scrollElements.forEach(el => observer.observe(el));
+    
+    // Smooth Scroll Function
+    function scrollToSection(sectionId) {
+      document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    // Navigation Active State
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.nav-link');
+      sections.forEach(section => {
+        const top = window.scrollY;
+        const offset = section.offsetTop - 100;
+        const height = section.offsetHeight;
+        const id = section.getAttribute('id');
+        if (top >= offset && top < offset + height) {
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${id}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    });
+    
+    // Form Submission
+    document.querySelector('.contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Message sent successfully!');
+      e.target.reset();
+    });
+    
+    // Dark Mode Toggle
+    (function(){
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        themeToggleBtn.textContent = newTheme === 'light' ? 'Dark Mode' : 'Light Mode';
+        localStorage.setItem('theme', newTheme);
+      });
+      // On load, set the theme from localStorage if available
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        themeToggleBtn.textContent = savedTheme === 'light' ? 'Dark Mode' : 'Light Mode';
+      }
+    })();
+    
+    // Back-to-Top Button
+    const backToTopBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
 </body>
 </html>
